@@ -8,8 +8,7 @@ const notFoundHandler = require('./middleware/notFound');
 const path = require('path');
 const lockSystem = require('lock-system');
 const { audio } = require('system-control');
-const play = require('audio-play');
-const load = require('audio-loader');
+const sound = require('sound-play');
 
 // middleware
 app.use(optionsHandler);
@@ -30,9 +29,9 @@ app.get('/lock-screen', (req, res) => {
   res.status(200).json({ lulw: 'lulw' });
 });
 
-app.get('/troll', (req, res) => {
-  audio.volume(80);
-  load('./public/NGGYU.mp3').then(play);
+app.get('/troll', async (req, res) => {
+  audio.volume(10);
+  sound.play(__dirname + '/public/lie.mp3');
   res.status(200).json({ lulw: 'lulw' });
 });
 
