@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Remote troll</title>
+    <meta name="description" content="Remote troll" />
+
+    <style>
+      html,
+      body {
+        position: relative;
+        margin: 0;
+        background-color: #222222;
+      }
+      .options {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: stretch;
+      }
+      button {
+        border: none;
+        color: #fff;
+        margin: 20px;
+        margin-top: 0;
+        height: 50%;
+        border-radius: 80px;
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+          0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+        font-weight: 700;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all 200ms;
+        -webkit-tap-highlight-color: transparent;
+      }
+      button:hover {
+        box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+          0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+          0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+      }
+      button:first-child {
+        margin-top: 20px;
+      }
+      button:focus {
+        outline: none;
+      }
+      .troll {
+        background-color: #283593;
+      }
+      .lock {
+        background-color: #c62828;
+      }
+      .troll:hover {
+        background-color: #1a237e;
+      }
+      .lock:hover {
+        background-color: #b71c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="options">
+      <button onclick="onTroll()" class="troll">
+        TROLL
+      </button>
+      <button onclick="onLock()" class="lock">
+        LOCK
+      </button>
+    </div>
+
+    <script>
+      function onTroll() {
+        const Http = new XMLHttpRequest();
+        Http.open('GET', '/troll');
+        Http.send();
+        Http.onreadystatechange = e => {
+          console.log(Http.responseText);
+        };
+      }
+
+      function onLock() {
+        const Http = new XMLHttpRequest();
+        Http.open('GET', '/lock-screen');
+        Http.send();
+        Http.onreadystatechange = e => {
+          console.log(Http.responseText);
+        };
+      }
+    </script>
+  </body>
+</html>

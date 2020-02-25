@@ -1,0 +1,31 @@
+{
+  "name": "remote-troll",
+  "version": "1.0.0",
+  "description": "Remote troll",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=development nodemon ./api/express.js"
+  },
+  "keywords": [
+    "node",
+    "restful",
+    "api"
+  ],
+  "author": "Audiovisuaali",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "lock-system": "^2.0.0",
+    "loudness": "^0.3.0",
+    "morgan": "^1.9.1",
+    "play-sound": "^1.1.3",
+    "system-control": "^0.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "eslint": "^6.1.0",
+    "nodemon": "^1.19.1"
+  }
+}
